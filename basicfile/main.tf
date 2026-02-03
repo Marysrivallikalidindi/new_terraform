@@ -1,12 +1,12 @@
 resource "aws_vpc" "mydemovpc"{
-    cidr_block = "var.vpc_cidr"
+    cidr_block = var.vpc_cidr
     tags = {
-      Name = "var.vpc_name"
+      Name = var.vpc_name
     }
 }
 resource "aws_subnet" "mysub1" {
     vpc_id = aws_vpc.mydemovpc.id
-    cidr_block = "var.subnet1_cidr"
+    cidr_block = var.subnet1_cidr
     availability_zone = "ap-south-1a"
     tags = {
       Name = "subnet1"
