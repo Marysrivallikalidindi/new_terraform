@@ -17,7 +17,7 @@ resource "aws_subnet" "subnets"{
 
 }
 resource"aws_route_table" "myroutetable"{
-    vpc_id=aws_vpc.Myobjvpc.id
+    vpc_id=aws_vpc.Myvpc.id
     route{
         cidr_block="0.0.0.0/0"
         gateway_id= aws_internet_gateway.myinternetgateway.id
