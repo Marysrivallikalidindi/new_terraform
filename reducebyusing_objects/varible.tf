@@ -13,7 +13,7 @@ variable "network_info"{
       vpcname ="mydalmia-vpc"
       vpccidr = "10.0.0.0/20"
       pubsubinfo = [ {
-        subnetname=["mydalsub1","mydalsub2"]
+        subnetnames=["mydalsub1","mydalsub2"]
         subnetcidr=["10.0.0.0/24","10.0.1.0/24"]
         subnetazs=["ap-south-1a","ap-south-1b"]
 
