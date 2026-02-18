@@ -1,4 +1,4 @@
-network_info{
+variable "network_info"{
     vpcname="myvpc1"
     vpccidr="192.168.0.0/20"
     pubsubinfo=[{
