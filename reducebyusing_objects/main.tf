@@ -5,7 +5,7 @@ resource "aws_vpc" "Myvpc"{
     }
 }
 resource "aws_subnet" "subnets"{
-    count=local.pub_subnet_value?1:0
+    count=local.pub_subnet_value
     vpc_id =aws_vpc.Myvpc.id
     cidr_block = var.network_info.pubsubinfo[0].subnetcidr[count.index]
     availability_zone = var.network_info.pubsubinfo[0].subnetazs[count.index]
@@ -37,7 +37,7 @@ resource "aws_internet_gateway" "myinternetgateway"{
     depends_on=[aws_vpc.Myvpc]
 }
 resource "aws_route_table_association" "mypublicroute"{
-  count = local.pub_subnet_value?1:0
+  count = local.pub_subnet_value
     route_table_id=aws_route_table.myroutetable.id
     subnet_id=aws_subnet.subnets[0].id
     depends_on=[aws_route_table.myroutetable,aws_subnet.subnets]
