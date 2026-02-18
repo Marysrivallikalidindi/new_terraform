@@ -3,7 +3,7 @@ output "vpcid" {
   
 }
 output "pusubids" {
-    value = aws_subnet.subnets[0].id
+    value = aws_subnet.subnets[*].id
   
 }
 output "routetableid"{
