@@ -10,7 +10,7 @@ resource "aws_subnet" "subnets"{
     cidr_block = var.network_info.pubsubinfo[0].subnetcidr[count.index]
     availability_zone = var.network_info.pubsubinfo[0].subnetazs[count.index]
     tags={
-        Name=var.network_info.pubsubinfo[0].subnetname[count.index]
+        Name=var.network_info.pubsubinfo[0].subnetnames[count.index]
 
     }
     depends_on=[aws_vpc.Myvpc]
