@@ -21,7 +21,7 @@ resource "aws_route_table" "myroutetablenew" {
     count = local.pub_subnet_value?1:0
     route{
         cidr_block = var.network_info.routablecidr
-        nat_gateway_id =aws_nat_gateway.mynategateway.id
+        nat_gateway_id =aws_nat_gateway.mynategateway[count.index].id
 
     }  
     tags = {
