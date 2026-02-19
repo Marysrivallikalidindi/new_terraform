@@ -35,7 +35,7 @@ resource "aws_nat_gateway" "mynategateway" {
   
 }
 resource "aws_route_table_association" "myrouteassociation" {
-    route_table_id = aws_route_table.myroutetablenew.id
+    route_table_id = aws_route_table.myroutetablenew[count.index].id
     subnet_id = aws_subnet.mynatsubnets[0].id
 
   
