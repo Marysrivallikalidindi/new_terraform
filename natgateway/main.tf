@@ -1,7 +1,7 @@
 resource "aws_vpc" "mynatvpc" {
     cidr_block = var.network_info.vpccidr
     tags = {
-      Name = var.network_info.vpcnat
+      Name = var.network_info.vpcname
     }
   
 }
