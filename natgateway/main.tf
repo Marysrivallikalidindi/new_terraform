@@ -8,11 +8,11 @@ resource "aws_vpc" "mynatvpc" {
 resource "aws_subnet" "mynatsubnets" {
     vpc_id = aws_vpc.mynatvpc.id
     count=local.pub_subnet_value
-    cidr_block = var.network_info.pubsubinfo[0].subnetcidr
-    availability_zone = var.network_info.pubsubinfo[0].subnetazs
+    cidr_block = var.network_info.pubsubinfo[0].subnetcidr[count.index]
+    availability_zone = var.network_info.pubsubinfo[0].subnetazs[count.index]
 
     tags={
-        Name= var.network_info.pubsubinfo[0].subnetnames
+        Name= var.network_info.pubsubinfo[0].subnetnames[count.index]
     }  
     depends_on = [ aws_vpc.mynatvpc ]
 }
