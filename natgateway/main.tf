@@ -37,8 +37,8 @@ resource "aws_nat_gateway" "mynategateway" {
   
 }
 resource "aws_route_table_association" "myrouteassociation" {
-    route_table_id = aws_route_table.myroutetablenew[count.index].id
-    subnet_id = aws_subnet.mynatsubnets[*].id
+    route_table_id = aws_route_table.myroutetablenew[0].id
+    subnet_id = aws_subnet.mynatsubnets[1].id
     count = local.pub_subnet_value
     depends_on = [  aws_route_table.myroutetablenew,aws_subnet.mynatsubnets]
 
