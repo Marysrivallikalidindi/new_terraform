@@ -18,7 +18,7 @@ resource "aws_subnet" "mynatsubnets" {
 }
 resource "aws_route_table" "myroutetablenew" {
     vpc_id = aws_vpc.mynatvpc.id
-    count = local.pub_subnet_value?2:0
+    count = local.pub_subnet_value
     route{
         cidr_block = var.network_info.routablecidr
         nat_gateway_id = aws_nat_gateway.mynategateway[count.index].id
@@ -31,13 +31,13 @@ resource "aws_route_table" "myroutetablenew" {
 resource "aws_nat_gateway" "mynategateway" {
     connectivity_type = "private"
     subnet_id = aws_subnet.mynatsubnets[0].id
-    count = local.pub_subnet_value?2:0
+    count = local.pub_subnet_value
   
 }
 resource "aws_route_table_association" "myrouteassociation" {
     route_table_id = aws_route_table.myroutetablenew[count.index].id
     subnet_id = aws_subnet.mynatsubnets[0].id
-    count = local.pub_subnet_value?2:0
+    count = local.pub_subnet_value
 
   
 }
