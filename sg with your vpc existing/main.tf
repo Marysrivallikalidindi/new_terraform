@@ -1,7 +1,7 @@
 data "aws_vpc" "myexistingvpc"{
     filter {
       name="tag:Name"
-      values = [ myvpc ]
+      values = [ "myvpc"]
     }
 }
 resource "aws_security_group" "mysg1"{
