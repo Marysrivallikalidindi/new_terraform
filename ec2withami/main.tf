@@ -21,7 +21,7 @@ resource "aws_key_pair" "myownkeypair" {
 data "aws_ami" "myami" {
     filter{
         name="name"
-        values = ["ubuntu-eks-pro/k8s_1.31/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+        values = ["ubuntu-eks-pro/k8s_1.31/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20251115"]
     }
     owners=["099720109477"]
   
