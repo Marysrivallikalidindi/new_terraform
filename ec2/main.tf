@@ -22,7 +22,7 @@ resource "aws_instance" "myec2" {
     ami = "ami-051a31ab2f4d498f5"
     instance_type = "t3.micro"
     key_name = aws_key_pair.myownkeypair.key_name
-    associate_public_ip_address = True
+    associate_public_ip_address = true
     vpc_security_group_ids = [ aws_security_group.mysg1.id ]
     tags = {
       Name = "myterraformec2"
