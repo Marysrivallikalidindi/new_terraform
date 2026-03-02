@@ -38,7 +38,7 @@ resource "aws_instance" "myec2" {
     connection {
       type = "ssh"
       user = "ubuntu"
-      private_key = file("~./id_ed25519")
+      private_key = file("~/id_ed25519")
       host = aws_instance.myec2.public_ip
     }
     provisioner "remote-exec" {
