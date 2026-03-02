@@ -66,7 +66,7 @@ resource "null_resource" "changesmade" {
   }
     provisioner "remote-exec" {
 
-      inline = ["sudo apt update", "mkdir folder1", "sudo apt install nginx -y"]
+      inline = ["sudo apt update", "mkdir folder1", "sudo apt install nginx -y","echo nginx succefully installed"]
 
     }
   }
