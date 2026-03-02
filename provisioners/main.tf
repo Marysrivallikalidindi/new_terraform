@@ -1,6 +1,10 @@
 data "aws_vpc" "myexistingvpc"{
     default=true
 }
+data "aws_subnet" "default_public" {
+  default_for_az = true
+  availability_zone = "ap-south-1a"
+}
 resource "aws_security_group" "mysg1"{
     name = "myopensg"
     description="all networks ports allowing"
@@ -24,7 +28,6 @@ data "aws_ami" "myami" {
         values = ["ubuntu-eks-pro/k8s_1.31/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20251115"]
     }
     owners=["099720109477"]
-  
 }
 resource "aws_instance" "myec2" {
     ami = data.aws_ami.myami.id
@@ -32,6 +35,7 @@ resource "aws_instance" "myec2" {
     key_name = aws_key_pair.myownkeypair.key_name
     associate_public_ip_address = true
     vpc_security_group_ids = [ aws_security_group.mysg1.id ]
+    subnet_id = data.aws_subnet.default_public.id
     tags = {
       Name = "myterraformec2"
     }
