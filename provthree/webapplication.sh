@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 touch file1
 sudo apt update
 mkdir user1
