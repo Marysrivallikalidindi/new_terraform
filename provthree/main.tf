@@ -63,10 +63,6 @@ resource "aws_instance" "myec2" {
         source = "mary.jpeg"
         destination = "/tmp/mary.jpeg"      
     }
-    provisioner "remote-exec" {
-        inline = [ "sudo chmod +x webapplication.sh","webapplication.sh" ]
-      
-    }
     provisioner "local-exec" {
         command = "mkdir demo"
       
