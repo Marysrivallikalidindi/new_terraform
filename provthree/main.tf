@@ -56,15 +56,15 @@ resource "aws_instance" "myec2" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("~/id_ed25519")
-    host        = aws_instance.myec2.public_ip
+    host        = self.public_ip
   }
     provisioner "file" {
         source = "./webapplication.sh"
         destination = "/home/ubuntu/webapplication.sh"
     }
     provisioner "file" {
-        source = "Mary_srivalli jpg (1).jpeg"
-        destination = "/tmp/Mary_srivalli jpg (1).jpeg"      
+        source = "mary.jpeg"
+        destination = "/tmp/mary.jpeg"      
     }
     provisioner "remote-exec" {
         inline = [ "sudo chmod +x /home/ubuntu/webapplication.sh","sudo /home/ubuntu/webapplication.sh" ]
