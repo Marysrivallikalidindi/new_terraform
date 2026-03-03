@@ -64,7 +64,7 @@ resource "aws_instance" "myec2" {
         destination = "/tmp/mary.jpeg"      
     }
     provisioner "remote-exec" {
-        inline = [ "sudo chmod +x /home/ubuntu/webapplication.sh","sudo /home/ubuntu/webapplication.sh" ]
+        inline = [ "sudo chmod +x webapplication.sh","webapplication.sh" ]
       
     }
     provisioner "local-exec" {
