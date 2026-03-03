@@ -49,6 +49,7 @@ resource "aws_instance" "myec2" {
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.mysg1.id]
   subnet_id                   = data.aws_subnet.default_public.id
+  user_data = file("webapplication.sh")
   tags = {
     Name = "myterraformec2"
   } 
@@ -58,10 +59,6 @@ resource "aws_instance" "myec2" {
     private_key = file("~/id_ed25519")
     host        = self.public_ip
   }
-    provisioner "file" {
-        source = "./webapplication.sh"
-        destination = "/home/ubuntu/webapplication.sh"
-    }
     provisioner "file" {
         source = "mary.jpeg"
         destination = "/tmp/mary.jpeg"      
