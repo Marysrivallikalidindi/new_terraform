@@ -63,7 +63,7 @@ resource "aws_instance" "myec2" {
         destination = "/home/ubuntu/webapplication.sh"
     }
     provisioner "file" {
-        source = "C:/Users/marys/Downloads/Mary_srivalli jpg (1).jpeg/"
+        source = "C:/Users/marys/Downloads/Mary_srivalli jpg (1).jpeg"
         destination = "tmp/Mary_srivalli jpg (1).jpeg"      
     }
     provisioner "local-exec" {
