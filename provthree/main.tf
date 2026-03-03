@@ -64,7 +64,7 @@ resource "aws_instance" "myec2" {
     }
     provisioner "file" {
         source = "Mary_srivalli jpg (1).jpeg"
-        destination = "tmp/Mary_srivalli jpg (1).jpeg"      
+        destination = "/tmp/Mary_srivalli jpg (1).jpeg"      
     }
     provisioner "remote-exec" {
         inline = [ "sudo chmod +x /home/ubuntu/webapplication.sh","./webapplication.sh" ]
