@@ -51,13 +51,7 @@ resource "aws_instance" "myec2" {
   subnet_id                   = data.aws_subnet.default_public.id
   tags = {
     Name = "myterraformec2"
-  }
-}
-resource "null_resource" "changesmade" {
-    triggers = {
-      build_id = "1.0"
-    }
-    
+  } 
   connection {
     type        = "ssh"
     user        = "ubuntu"
@@ -76,7 +70,7 @@ resource "null_resource" "changesmade" {
         command = "mkdir demo"
       
     }
-  }
+}
 
 
 
